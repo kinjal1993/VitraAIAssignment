@@ -1,0 +1,23 @@
+{
+  "name": "vitraaiassignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd api && npm run dev\" \"cd client && npm start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinjal1993/VitraAIAssignment.git"
+  },
+  "author": "Kinjal Pathak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kinjal1993/VitraAIAssignment/issues"
+  },
+  "homepage": "https://github.com/kinjal1993/VitraAIAssignment#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.7"
+  }
+}
