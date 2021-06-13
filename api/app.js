@@ -4,7 +4,7 @@ const port = process.env.PORT || 5000;
 const cors = require('cors');
 
 app.use(cors());
-app.options('*', cors());
+app.options('*', cors()); // currently for development purpose, should be restricted in production env
 
 app.use(express.json());
 

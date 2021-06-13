@@ -26,7 +26,8 @@ const Page2 = (props) => {
             <Typography component="h5" variant="h5" align="center" color="textPrimary" gutterBottom>
                 Non active people with balance less than $2000
             </Typography>
-            <FriendsList people={people}></FriendsList></div>
+            <FriendsList people={people}></FriendsList>
+        </div>
     );
 }
 
