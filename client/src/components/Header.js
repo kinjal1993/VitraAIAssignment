@@ -10,12 +10,12 @@ const Header = () => {
         <AppBar position="static" color="primary" elevation={0}>
             <Toolbar>
                 <Grid container spacing={1}>
-                    <Grid item container justify="flex-start" lg={4}>
+                    <Grid item container justify="flex-start" lg={4} md={4} sm={6} xs={6}>
                         <Typography variant="h6" color="inherit" noWrap>
                             Vitra.ai
                         </Typography>
                     </Grid>
-                    <Grid item container justify="flex-end" lg={8}>
+                    <Grid item container justify="flex-end" lg={8} md={8} sm={6} xs={6}>
                         <Box component="span" m={1}>
                             <Link underline="none" href="/" color="secondary">
                                 Page 1
