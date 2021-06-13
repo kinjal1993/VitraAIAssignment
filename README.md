@@ -55,7 +55,7 @@ npm install
 ```
 ## 6. Run the project
 
-Navigate to the root folder and install dependencies
+Navigate to the root folder
 ``` bash
 npm run dev
 ```
