@@ -8,9 +8,9 @@ Fetches data from a json file, displays on a webpage.
 
 ```bash
 ├── client (Front end - React)
-|   ├── public
+|   ├── public (asset files)
 |   ├── src
-|   |   ├── components
+|   |   ├── components (Web components)
 |   |   ├── App.js (Entry point)
 |   |   ├── urls.js (Api urls constants)
 |   |   ├── index.js
@@ -20,9 +20,7 @@ Fetches data from a json file, displays on a webpage.
 │   ├── data
 |   │   ├── people.json
 |   ├── routes (app routes)
-|   │   ├── *.js
 |   ├── controllers (business logic)
-|   │   ├── *.js
 │   ├── app.js (Entry point)
 |   ├── package.json
 ├── README.md
