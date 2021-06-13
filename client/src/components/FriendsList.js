@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TablePagination from '@material-ui/core/TablePagination';
 
-const PeopleList = (props) => {
+const FriendsList = (props) => {
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -22,15 +22,16 @@ const PeopleList = (props) => {
 
 
     const peopleList = props.people.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((people) => {
+        const friends = people.friends.map((item) => {
+            return item.name
+        }).join(', ')
         return (
             <TableRow key={people._id}>
                 <TableCell component="th" scope="row">
                     {people.name}
                 </TableCell>
                 <TableCell>{people.balance}</TableCell>
-                <TableCell>{people.email}</TableCell>
-                <TableCell>{people.phone}</TableCell>
-                <TableCell>{(people.isActive)?'Yes':'No'}</TableCell>
+                <TableCell>{friends}</TableCell>
             </TableRow>
         )
     })
@@ -43,9 +44,7 @@ const PeopleList = (props) => {
                         <TableRow>
                             <TableCell>Name</TableCell>
                             <TableCell>Balance</TableCell>
-                            <TableCell>Email</TableCell>
-                            <TableCell>Phone</TableCell>
-                            <TableCell>Active</TableCell>
+                            <TableCell>Friends</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -66,4 +65,4 @@ const PeopleList = (props) => {
     );
 }
 
-export default PeopleList;
+export default FriendsList;

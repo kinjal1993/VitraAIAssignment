@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 const getData = (req, res) => {
-    const filters = req.body.hasOwnProperty("filters")?req.body.filters:{};
+    const filters = req.query;
     let response = [];
     const statusCode = 200;
     fs.readFile("./data/people.json", "utf8", (err, jsonString) => {
@@ -12,37 +12,30 @@ const getData = (req, res) => {
             const people = JSON.parse(jsonString);
             response = people.filter((item) => {
                 // if isactive filter set, check its value
-                const statusFlag = (filters.hasOwnProperty("isActive")) ? ((filters.isActive === item.isActive) ? true : false) : true; 
+                const statusFlag = (filters.hasOwnProperty("isActive")) ? ((Boolean(filters.isActive) === item.isActive) ? true : false) : true;
 
                 let balanceRangeFlag = true;
-                if(statusFlag)
-                {
+                if (statusFlag) {
                     // if balance range set, check whether data falls into the range
-                    if (filters.hasOwnProperty("balanceRange")) {
-                                        
-                        const min = parseFloat(filters.balanceRange[0])
-                        const max = parseFloat(filters.balanceRange[1])
-                        const balance = Number(item.balance.replace(/[^0-9.-]+/g,""));
-                        
-                        if(min != -1)
-                        {
-                            balanceRangeFlag = (balance >= min)?true:false
-                        }
-                        if(max != -1 && balanceRangeFlag)
-                        {
-                            balanceRangeFlag = (balance <= max)?true:false
-                        }
+                    const balance = Number(item.balance.replace(/[^0-9.-]+/g, ""));
+                    if (filters.hasOwnProperty("balanceMin")) {
+                        const min = parseFloat(filters.balanceMin)
+                        balanceRangeFlag = (balance >= min) ? true : false
+                    }
+                    if (balanceRangeFlag && filters.hasOwnProperty("balanceMax")) {
+                        const max = parseFloat(filters.balanceMax)
+                        balanceRangeFlag = (balance <= max) ? true : false
                     }
                 }
-                
+
                 return (statusFlag && balanceRangeFlag)
-            });            
+            });
         } catch (err) {
             console.log("Error parsing JSON string:", err);
         }
         finally {
             res.status(statusCode).json({
-                count : response.length,
+                count: response.length,
                 data: response
             });
         }

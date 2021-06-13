@@ -1,13 +1,21 @@
 import Box from "@material-ui/core/Box";
 import Grid from '@material-ui/core/Grid';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-const Header = (props) => {
+const Header = () => {
     return (
-        <header>
-            <Box bgcolor="primary.main">
+        <AppBar position="static" color="primary" elevation={0}>
+            <Toolbar>
                 <Grid container spacing={1}>
-                    <Grid container alignItems="center" item lg={12}>
+                    <Grid item container justify="flex-start" lg={4}>
+                        <Typography variant="h6" color="inherit" noWrap>
+                            Vitra.ai
+                        </Typography>
+                    </Grid>
+                    <Grid item container justify="flex-end" lg={8}>
                         <Box component="span" m={1}>
                             <Link underline="none" href="/" color="secondary">
                                 Page 1
@@ -20,8 +28,8 @@ const Header = (props) => {
                         </Box>
                     </Grid>
                 </Grid>
-            </Box>
-        </header>
+            </Toolbar>
+        </AppBar>
     );
 }
 

@@ -7,6 +7,7 @@ import blue from "@material-ui/core/colors/blue";
 import Content from './components/Content';
 import Page1 from './components/Page1';
 import Page2 from './components/Page2';
+import Footer from './components/Footer';
 
 const theme = createMuiTheme({
   palette: {
@@ -17,19 +18,14 @@ const theme = createMuiTheme({
     secondary: {
       // This is green.A700 as hex.
       main: "#fff",
-    },
-    default: {
-      main: "#000",
-    },
+    }
   },
 });
 
-
-//import Footer from './components/Footer';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Header></Header>
+      <Header />
       <Content>
         <BrowserRouter>
           <Switch>
@@ -38,7 +34,7 @@ function App() {
           </Switch>
         </BrowserRouter>
       </Content>
-      {/* <Footer></Footer> */}
+      <Footer />
     </ThemeProvider>
   );
 }

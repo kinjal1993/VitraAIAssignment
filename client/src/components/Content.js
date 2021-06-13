@@ -2,7 +2,7 @@ import Container from "@material-ui/core/Container";
 
 const Content = (props) => {
     return (
-        <Container maxWidth="sm">
+        <Container maxWidth="lg" style={{ padding: 60 }}>
             {props.children}
         </Container>
     );
