@@ -20,7 +20,6 @@ const FriendsList = (props) => {
         setPage(0);
     };
 
-
     const peopleList = props.people.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((people) => {
         const friends = people.friends.map((item) => {
             return item.name
